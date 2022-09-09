@@ -9,7 +9,7 @@ logging.basicConfig(
 )
 
 
-class BackscatterList:
+class Docket:
     def __init__(self, airtable_name):
         airtable_api_key = os.environ["AIRTABLE_API_KEY"]
         airtable_base_id = os.environ["AIRTABLE_WEBSCRAPING_BASE_ID"]
