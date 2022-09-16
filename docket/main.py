@@ -1,12 +1,7 @@
 import os
 import socket
-import logging
 from pyairtable import Table
 from pyairtable.formulas import match
-
-
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
 
 
 class Docket:
@@ -30,7 +25,7 @@ class Docket:
 
             # If not, harvesting is finished
             if not record:
-                logging.info(f"Finished harvesting")
+                print(f"Finished harvesting")
                 break
 
             target = record["fields"]["Id"]
@@ -38,6 +33,6 @@ class Docket:
                 record["id"],
                 {"Progress": "In progress", "Worker": socket.gethostname()},
             )
-            logging.info(f"Now harvesting {target}")
+            print(f"Now harvesting {target}")
             yield target
             self.table.update(record["id"], {"Progress": "Done"})
