@@ -1,7 +1,5 @@
 """
-pyexample.
-
-An example python library.
+docket.
 """
 
 __version__ = "0.1.0"
